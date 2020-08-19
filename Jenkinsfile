@@ -3,7 +3,9 @@ node {
     stage('SCM Checkout') {
         git url: 'https://github.com/lorenzolacchini-key/mongodb-consumer'
     }
-    stage('Maven build') {
-        sh "package -DskipTests=true"
-    }
+        stage('Build') {
+            steps {
+                sh 'mvn -B -DskipTests package'
+            }
+        }
 }
