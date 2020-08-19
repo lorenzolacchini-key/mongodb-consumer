@@ -4,6 +4,6 @@ node {
         git url: 'https://github.com/lorenzolacchini-key/mongodb-consumer'
     }
     stage('Maven build') {
-        buildInfo = mvn pom: '/pom.xml', goals: 'package -DskipTests=true'
+        sh "package -DskipTests=true"
     }
 }
