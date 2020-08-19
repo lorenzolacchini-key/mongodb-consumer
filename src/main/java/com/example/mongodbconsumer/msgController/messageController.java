@@ -19,7 +19,6 @@ public class messageController {
 		String id="";
 		String name="";
 		String author="";
-		String ora="";
 		
 		for (int i=0; i< msg.length(); i++) {
 			if(msg.charAt(i)=='"') {
