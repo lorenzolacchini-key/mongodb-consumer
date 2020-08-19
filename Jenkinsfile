@@ -1,9 +1,9 @@
 node {
+	def buildInfo
     stage('SCM Checkout') {
-        git url: 'https://github.com/lorenzolacchini-key/mongodb-consumer.git'
+        git url: 'https://github.com/lorenzolacchini-key/mongodb-consumer'
     }
-    stage('Compile-Package') {
-		def mvnHome = tool name: 'maven-3', type: 'maven'
-			sh "${mvnHome}/bin/mvn package
+    stage('Maven build') {
+        buildInfo = rtMaven.run pom: '/pom.xml', goals: 'package -DskipTests=true'
     }
 }
