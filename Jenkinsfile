@@ -15,7 +15,10 @@ pipeline {
         }
         stage("Build docker") {
             steps {
-                build job: 'docker-images'
+                build job: 'docker-images',
+                    parameters: [
+                        string(name: 'image_name', value: String.valueOf(BUILD_TAG))
+                     ]
             }
         }
         stage("Deploy") {
