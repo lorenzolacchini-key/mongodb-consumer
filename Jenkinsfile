@@ -13,9 +13,9 @@ pipeline {
             }
         }
         stage("Docker images") {
-           
+           steps {
                 docker.build("mongodb-consumer", ".")
-            
+           } 
         }
     }
 }
