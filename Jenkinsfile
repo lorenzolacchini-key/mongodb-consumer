@@ -20,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                docker.build("mongodb-consumer")
+                script{docker.build("mongodb-consumer")}
             }
         }
     }
