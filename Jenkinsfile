@@ -13,6 +13,15 @@ pipeline {
                 sh "cp target/mongodb-consumer-0.0.1-SNAPSHOT.jar $JENKINS_HOME/jars/"
             }
         }
+        stage("Deploy") {
+            steps {
+                build job: 'docker-images', 
+                      parameters: [
+                        string(name: 'passed_build_number_param', value: String.valueOf(BUILD_NUMBER)),
+                        string(name: 'complex_param', value: 'prefix-' + String.valueOf(BUILD_NUMBER))
+                     ]
+            }
+        }
         
     }
 }
