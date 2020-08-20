@@ -9,7 +9,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "mvn -version"
-                sh "mvn package -DskipTests=true -Djar.finalName=builtartifact"
+                sh "mvn package -DskipTests=true"
             }
         }
         stage("Deploy") {
