@@ -68,6 +68,8 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+
+  		 <finalName>BuiltJar</finalName>
 	</build>
 
 </project>
