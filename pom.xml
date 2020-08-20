@@ -16,8 +16,9 @@
 
 	<properties>
 		<java.version>8</java.version>
+		<jar.finalName>${project.name}</jar.finalName>
 	</properties>
-
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
