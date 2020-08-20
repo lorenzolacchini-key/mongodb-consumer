@@ -1,4 +1,5 @@
 pipeline {
+    
     agent any
 
     tools {
@@ -23,7 +24,9 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-               sh "docker run -d $BUILD_TAG"
+             //  sh "docker run -d $BUILD_TAG"
+                sh "whoami"
+                sh "docker --version"
             }
         }
     }
