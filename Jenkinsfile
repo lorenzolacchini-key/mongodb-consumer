@@ -12,11 +12,6 @@ pipeline {
                 sh "mvn package -DskipTests=true"
             }
         }
-        stage("Docker images") {
-           steps {
-                docker.build("mongodb-consumer", ".")
-           } 
-        }
     }
 }
 node {
