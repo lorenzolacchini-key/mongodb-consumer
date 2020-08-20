@@ -15,7 +15,6 @@ pipeline {
         stage("Docker images") {
             agent {
                 dockerfile {
-                    filename 'Dockerfile'
                     dir '.'
                 }
             }
