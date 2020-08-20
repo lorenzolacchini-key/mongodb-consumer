@@ -9,8 +9,7 @@ pipeline {
         stage("Build") {
             steps {
                 sh "mvn -version"
-                sh "mvn package -DskipTests=true"
-                sh "cp target/mongodb-consumer-0.0.1-SNAPSHOT.jar $JENKINS_HOME/jars/"
+                sh "mvn package -DskipTests=true -Djar.finalName=builtartifact"
             }
         }
         stage("Deploy") {
