@@ -13,11 +13,15 @@ pipeline {
                 sh "cp target/BuiltJar.jar $JENKINS_HOME/jars/"
             }
         }
-        stage("Deploy") {
+        stage("Build docker") {
             steps {
                 build job: 'docker-images'
             }
         }
-        
+        stage("Deploy") {
+            steps {
+               sh "docker run -d $BUILD_TAG"
+            }
+        }
     }
 }
