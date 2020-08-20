@@ -24,9 +24,9 @@ pipeline {
         }
         stage("Deploy") {
             steps {
-             //  sh "docker run -d $BUILD_TAG"
-                sh "whoami"
-                sh "docker --version"
+              sh "docker run -d --rm -it -v "/var/run/docker.sock:/var/run/docker.sock" $BUILD_TAG"
+                //sh "whoami"
+              //  sh "docker --version"
             }
         }
     }
