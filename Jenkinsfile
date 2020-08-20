@@ -10,7 +10,7 @@ pipeline {
             steps {
                 sh "mvn -version"
                 sh "mvn package -DskipTests=true"
-                sh "cp target/mongodb-consumer-0.0.1-SNAPSHOT.jar $JENKINS_HOME/jars"
+                sh "cp target/mongodb-consumer-0.0.1-SNAPSHOT.jar $JENKINS_HOME/jars/"
             }
         }
         
