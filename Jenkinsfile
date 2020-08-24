@@ -22,6 +22,14 @@ pipeline {
                      ]
             }
         }
+        stage("Deploy K8s") {
+            steps {
+                build job: 'k8s-deployment',
+                    parameters: [
+                        string(name: 'image_name', value: String.valueOf(BUILD_TAG))
+                     ]
+            }
+        }
         
     }
 }
