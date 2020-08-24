@@ -16,5 +16,5 @@ spec:
     spec:
       containers:
       - name: mongodb-consumer
-        image: image_name
+        image: ${image_name}
         imagePullPolicy: Never
