@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongodb-consumer
+  labels:
+    app: mongodb-consumer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mongodb-consumer
+  template:
+    metadata:
+      labels:
+        app: mongodb-consumer
+    spec:
+      containers:
+      - name: mongodb-consumer
+        image: ${image_name}
+        imagePullPolicy: Never

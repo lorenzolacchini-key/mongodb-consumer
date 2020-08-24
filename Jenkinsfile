@@ -1,4 +1,5 @@
 pipeline {
+    
     agent any
 
     tools {
@@ -10,13 +11,25 @@ pipeline {
             steps {
                 sh "mvn -version"
                 sh "mvn package -DskipTests=true"
+                sh "cp target/BuiltJar.jar $JENKINS_HOME/jars/"
             }
         }
-    }
-
-    post {
-        always {
-            cleanWs()
+        stage("Build docker") {
+            steps {
+                build job: 'docker-images',
+                    parameters: [
+                        string(name: 'image_name', value: String.valueOf(BUILD_TAG))
+                     ]
+            }
         }
+        stage("Deploy K8s") {
+            steps {
+                build job: 'k8s-deployment',
+                    parameters: [
+                        string(name: 'image_name', value: String.valueOf(BUILD_TAG))
+                     ]
+            }
+        }
+        
     }
 }
